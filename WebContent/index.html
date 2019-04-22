@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Employee Entry Form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Create Employee Entries</h2>
+  <form action="First" method="post">
+  	<input type="hidden" name="r=search,c=time" value="Test">
+  	<input type="hidden" name="meth" value="testMethod">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter full name" name="fullName">
+    </div>
+	
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+    </div>
+	
+    <div class="form-group">
+	 <label for="email">Employee Type:</label>
+	<select name="employee" class="form-control" id="empType" required="required">
+		<option value="">Select Employee:</option>
+		<option value="Salaried">Salaried</option>
+		<option value="Hourly">Hourly</option>
+		<option value="Commissioned">Commissioned</option>
+	</select>
+    </div>	
+	
+	<div class="form-group" id="extra-field"></div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<script>
+
+$("#empType").change(function(){createExtraField()});
+
+//function to create extra field
+function createExtraField(){
+	//fetch value of selected employee
+	var selected_value = $("#empType").val();
+
+	if(selected_value == "Salaried"){
+		$("#extra-field").html(`<div class="form-group">
+			  <label>Pay:</label>
+			  <input class="form-control" id="pay" placeholder="Enter pay" name="pay">
+			</div>`);
+	}
+	else if(selected_value == "Hourly"){
+		$("#extra-field").html(`<div class="form-group">
+			  <label for="email">Worked hours:</label>
+			  <input class="form-control" id="hours" placeholder="Enter worked hours" name="hours">
+			</div>`);
+	}
+	else if(selected_value == "Commissioned"){
+		$("#extra-field").html(`<div class="form-group">
+			  <label for="email">Sales:</label>
+			  <input class="form-control" id="sales" placeholder="Enter amount of sale" name="sales">
+			</div>`);
+	}
+	
+}
+</script>
+</body>
+</html>
