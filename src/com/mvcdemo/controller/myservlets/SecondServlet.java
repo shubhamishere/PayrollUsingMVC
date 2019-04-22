@@ -24,7 +24,6 @@ public class SecondServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String searchEmail = request.getParameter("searchEmail");
 		
-		//select * from DATABASE_NAME where email="searchMail";
 		Connection con = dao.getConnection();
 		ResultSet rs = dao.searchForEmp(searchEmail, con);
 		try {

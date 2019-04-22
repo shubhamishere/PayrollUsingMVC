@@ -30,25 +30,10 @@
       <tr>
         <td><%= (String)request.getAttribute("fullName") %></td>
         <td><%= (String)request.getAttribute("email") %></td>
-        <td>john@example.com</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-        <td>Doe</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-        <td>Doe</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td><td>Doe</td>
-        <td>john@example.com</td>
-        <td>Doe</td>
+        <td><%= (String)request.getAttribute("empType") %></td>
+        <td><%= (Integer)request.getAttribute("workedHours") %></td>
+        <td><%= (Integer)request.getAttribute("saleAmount") %></td>
+        <td><%= (Integer)request.getAttribute("paybleSalary") %></td>
       </tr>
     </tbody>
   </table>
